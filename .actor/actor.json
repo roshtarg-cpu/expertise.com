@@ -1,8 +1,8 @@
 {
   "actorSpecification": 1,
   "name": "expertise-com-scraper",
-  "title": "Expertise.com Professional Directory Scraper — US Business Leads",
-  "description": "Scrape Expertise.com — the top-rated US professional directory covering 200+ service categories across all 50 states. Find lawyers, contractors, financial advisors, doctors, web designers, roofers, plumbers and more. Extract business name, phone, website, rating, ranking and profile URL. The only Expertise.com scraper on Apify. Perfect for B2B lead generation, market research and AI agent pipelines.",
+  "title": "Expertise.com Scraper — Find Top US Professionals, Lawyers & Contractors by City",
+  "description": "Find top-rated US professionals on Expertise.com. Search lawyers, roofers, CPAs, plumbers, contractors by city & state. Returns name, phone, website, rating, ranking. 200+ categories, all 50 states.",
   "version": "0.1",
   "buildTag": "latest",
   "environmentVariables": {},
