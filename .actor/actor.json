@@ -1,7 +1,7 @@
 {
   "actorSpecification": 1,
   "name": "expertise-com-scraper",
-  "title": "Expertise.com Scraper — Find Top US Professionals, Lawyers & Contractors by City",
+  "title": "Expertise.com Scraper | US Lawyers & Contractors by City",
   "description": "Find top-rated US professionals on Expertise.com. Search lawyers, roofers, CPAs, plumbers, contractors by city & state. Returns name, phone, website, rating, ranking. 200+ categories, all 50 states.",
   "version": "0.1",
   "buildTag": "latest",
