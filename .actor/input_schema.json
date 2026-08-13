@@ -1,0 +1,43 @@
+{
+  "title": "Expertise.com Professional Directory Scraper",
+  "type": "object",
+  "schemaVersion": 1,
+  "properties": {
+    "state": {
+      "title": "State",
+      "type": "string",
+      "description": "US state slug e.g. texas, california, new-york, florida",
+      "editor": "textfield",
+      "prefill": "texas"
+    },
+    "city": {
+      "title": "City",
+      "type": "string",
+      "description": "City slug e.g. dallas, houston, austin. Leave empty to scrape all cities in the state.",
+      "editor": "textfield",
+      "prefill": "dallas"
+    },
+    "category": {
+      "title": "Category",
+      "type": "string",
+      "description": "Service category slug e.g. personal-injury-lawyers, roofing, financial-advisors, web-design, accountant-cpa. Leave empty to scrape all categories.",
+      "editor": "textfield",
+      "prefill": "personal-injury-lawyers"
+    },
+    "maxResults": {
+      "title": "Max Results",
+      "type": "integer",
+      "description": "Maximum number of professionals to scrape",
+      "default": 100,
+      "editor": "number",
+      "prefill": 20
+    },
+    "proxyConfiguration": {
+      "title": "Proxy Configuration",
+      "type": "object",
+      "description": "Optional proxy. Usually not needed for Expertise.com.",
+      "editor": "proxy"
+    }
+  },
+  "required": ["state"]
+}
