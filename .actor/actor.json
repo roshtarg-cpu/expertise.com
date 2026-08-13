@@ -6,5 +6,9 @@
   "version": "0.1",
   "buildTag": "latest",
   "environmentVariables": {},
-  "dockerfile": "./Dockerfile"
+  "dockerfile": "./Dockerfile",
+  "output": "./output_schema.json",
+  "storages": {
+    "dataset": "./dataset_schema.json"
+  }
 }

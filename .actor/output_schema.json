@@ -1,0 +1,13 @@
+{
+  "actorOutputSchemaVersion": 1,
+  "title": "Expertise.com Professional Listings",
+  "description": "Top-rated US professionals scraped from Expertise.com, ranked by position. Each item is one business with contact info, ratings, and a direct profile link.",
+  "properties": {
+    "professionals": {
+      "type": "string",
+      "title": "Professional Listings",
+      "description": "Structured records of top-rated US professionals including business name, phone, website, rating, ranking, services, and profile URL.",
+      "template": "{{links.apiDefaultDatasetUrl}}/items"
+    }
+  }
+}

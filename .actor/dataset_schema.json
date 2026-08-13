@@ -1,0 +1,230 @@
+{
+  "actorSpecification": 1,
+  "fields": {
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "type": "object",
+    "properties": {
+      "businessName": {
+        "type": "string",
+        "title": "Business Name",
+        "description": "The name of the professional or business as listed on Expertise.com.",
+        "example": "Smith & Associates Law Firm"
+      },
+      "profileUrl": {
+        "type": "string",
+        "title": "Profile URL",
+        "description": "Direct link to this professional's card on the Expertise.com listing page.",
+        "example": "https://www.expertise.com/legal/personal-injury-lawyers/texas/dallas#smithassociateslawfirm"
+      },
+      "ranking": {
+        "type": ["integer", "null"],
+        "title": "Ranking",
+        "description": "Position in the Expertise.com ranked list for this category and city. 1 = top pick. Featured listings appear first (positions 1–3).",
+        "example": 1
+      },
+      "isFeatured": {
+        "type": "boolean",
+        "title": "Featured",
+        "description": "Whether this is a featured (boosted) listing. Featured listings appear at the top of the ranked list.",
+        "example": false
+      },
+      "category": {
+        "type": "string",
+        "title": "Category",
+        "description": "Service category slug from Expertise.com (e.g. personal-injury-lawyers, roofing, accountant-cpa).",
+        "example": "personal-injury-lawyers"
+      },
+      "city": {
+        "type": "string",
+        "title": "City",
+        "description": "City where the professional operates.",
+        "example": "Dallas"
+      },
+      "state": {
+        "type": "string",
+        "title": "State",
+        "description": "Two-letter US state abbreviation.",
+        "example": "TX"
+      },
+      "address": {
+        "type": ["string", "null"],
+        "title": "Address",
+        "description": "Full business address including street, city, state, and zip code.",
+        "example": "1910 Pacific Avenue Suite 5050, Dallas, TX, 75201"
+      },
+      "phone": {
+        "type": ["string", "null"],
+        "title": "Phone",
+        "description": "Business phone number in US format (XXX) XXX-XXXX.",
+        "example": "(214) 555-1234"
+      },
+      "website": {
+        "type": ["string", "null"],
+        "title": "Website",
+        "description": "Business website URL. Null if the business has opted out of displaying their website.",
+        "example": "https://smithlaw.com"
+      },
+      "rating": {
+        "type": ["number", "null"],
+        "title": "Rating",
+        "description": "Average review rating aggregated across Google, Yelp, Facebook, and other platforms (0–5 scale).",
+        "example": 4.9
+      },
+      "reviewCount": {
+        "type": ["integer", "null"],
+        "title": "Review Count",
+        "description": "Total number of reviews aggregated across all review platforms.",
+        "example": 87
+      },
+      "expertiseScore": {
+        "type": ["number", "null"],
+        "title": "Expertise Score",
+        "description": "Expertise.com's internal quality score based on professionalism, friendliness, helpfulness, knowledge, and responsiveness.",
+        "example": 4.8
+      },
+      "description": {
+        "type": ["string", "null"],
+        "title": "Description",
+        "description": "Editorial description of the professional or business written by Expertise.com.",
+        "example": "Smith & Associates specializes in personal injury cases with over 15 years of experience..."
+      },
+      "services": {
+        "type": ["array", "null"],
+        "title": "Services",
+        "description": "List of service specialties or practice areas for this professional.",
+        "example": ["General Negligence", "Traumatic Brain Injury", "Car Accidents"]
+      },
+      "licenseNumber": {
+        "type": ["string", "null"],
+        "title": "License Number",
+        "description": "Professional license number if available (common for home services contractors).",
+        "example": "LIC-12345"
+      },
+      "licenseStatus": {
+        "type": ["string", "null"],
+        "title": "License Status",
+        "description": "Current status of the professional license (e.g. Active, Expired).",
+        "example": "Active"
+      },
+      "isVerified": {
+        "type": "boolean",
+        "title": "Verified",
+        "description": "Whether this listing is a boosted/verified partner on Expertise.com.",
+        "example": false
+      },
+      "primaryContact": {
+        "type": ["string", "null"],
+        "title": "Primary Contact",
+        "description": "Name of the primary contact or principal at the business, if listed.",
+        "example": "Ron McCallum"
+      },
+      "providerId": {
+        "type": "integer",
+        "title": "Provider ID",
+        "description": "Expertise.com's internal unique identifier for this professional.",
+        "example": 3079628
+      },
+      "scrapedAt": {
+        "type": "string",
+        "title": "Scraped At",
+        "description": "ISO 8601 timestamp of when this record was scraped.",
+        "example": "2026-08-13T10:00:00+00:00"
+      }
+    },
+    "required": ["businessName", "profileUrl"]
+  },
+  "views": {
+    "overview": {
+      "title": "Overview",
+      "description": "Key fields for lead generation: name, ranking, contact info, rating, and profile link.",
+      "transformation": {
+        "fields": [
+          "ranking",
+          "businessName",
+          "category",
+          "city",
+          "state",
+          "phone",
+          "website",
+          "rating",
+          "reviewCount",
+          "expertiseScore",
+          "isFeatured",
+          "profileUrl"
+        ]
+      },
+      "display": {
+        "component": "table",
+        "properties": {
+          "ranking": { "label": "Rank", "format": "number" },
+          "businessName": { "label": "Business Name", "format": "text" },
+          "category": { "label": "Category", "format": "text" },
+          "city": { "label": "City", "format": "text" },
+          "state": { "label": "State", "format": "text" },
+          "phone": { "label": "Phone", "format": "text" },
+          "website": { "label": "Website", "format": "link" },
+          "rating": { "label": "Rating", "format": "number" },
+          "reviewCount": { "label": "Reviews", "format": "number" },
+          "expertiseScore": { "label": "Score", "format": "number" },
+          "isFeatured": { "label": "Featured", "format": "boolean" },
+          "profileUrl": { "label": "Profile", "format": "link" }
+        }
+      }
+    },
+    "details": {
+      "title": "Full Details",
+      "description": "All fields including address, services, license info, and description.",
+      "transformation": {
+        "fields": [
+          "ranking",
+          "businessName",
+          "category",
+          "city",
+          "state",
+          "address",
+          "phone",
+          "website",
+          "rating",
+          "reviewCount",
+          "expertiseScore",
+          "services",
+          "description",
+          "licenseNumber",
+          "licenseStatus",
+          "isVerified",
+          "isFeatured",
+          "primaryContact",
+          "profileUrl",
+          "providerId",
+          "scrapedAt"
+        ]
+      },
+      "display": {
+        "component": "table",
+        "properties": {
+          "ranking": { "label": "Rank", "format": "number" },
+          "businessName": { "label": "Business Name", "format": "text" },
+          "category": { "label": "Category", "format": "text" },
+          "city": { "label": "City", "format": "text" },
+          "state": { "label": "State", "format": "text" },
+          "address": { "label": "Address", "format": "text" },
+          "phone": { "label": "Phone", "format": "text" },
+          "website": { "label": "Website", "format": "link" },
+          "rating": { "label": "Rating", "format": "number" },
+          "reviewCount": { "label": "Reviews", "format": "number" },
+          "expertiseScore": { "label": "Expertise Score", "format": "number" },
+          "services": { "label": "Services", "format": "array" },
+          "description": { "label": "Description", "format": "text" },
+          "licenseNumber": { "label": "License #", "format": "text" },
+          "licenseStatus": { "label": "License Status", "format": "text" },
+          "isVerified": { "label": "Verified", "format": "boolean" },
+          "isFeatured": { "label": "Featured", "format": "boolean" },
+          "primaryContact": { "label": "Contact", "format": "text" },
+          "profileUrl": { "label": "Profile", "format": "link" },
+          "providerId": { "label": "Provider ID", "format": "number" },
+          "scrapedAt": { "label": "Scraped At", "format": "date" }
+        }
+      }
+    }
+  }
+}
